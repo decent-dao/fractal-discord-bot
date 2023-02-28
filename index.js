@@ -14,7 +14,9 @@ const githubToDiscordId = new Map([
 
 // the authorId for the Github webhook
 // TODO also would be better off as env variable
-const githubAuthorId = '1080116044884086866';
+// TODO this should be msg.authorId... but it's coming
+// in as undefined
+// const githubAuthorId = '1080116044884086866';
 
 const client = new Client({
 	intents: [
@@ -26,7 +28,7 @@ const client = new Client({
 });
 
 client.on(Events.MessageCreate, msg => {
-    if (msg.authorId === githubAuthorId && msg.embeds.length > 0) {
+    if (msg.embeds.length > 0) {
         const description = msg.embeds[0].description;
         let reply = '';
         // iterate through our map of Github users
