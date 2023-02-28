@@ -4,13 +4,13 @@ const { Client, Events, GatewayIntentBits } = require('discord.js');
 // Both Github username and Discord userId are public
 // information so hardcoding isn't a security concern.
 // TODO we should use a Github environment variable here.
-const githubToDiscordId = [
+const githubToDiscordId = new Map([
     ['@Da-Colon', '867776441777258547'],
     ['@tbwebb22', '682293031474298880'],
     ['@mudrila', '897909032080265268'],
     ['@sethhrbek', '792865263937650758'],
     ['@herbig', '424603890693177344'],
-];
+]);
 
 // the authorId for the Github webhook
 // TODO also would be better off as env variable
