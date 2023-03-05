@@ -20,11 +20,11 @@ const githubToDiscordId = new Map([
 
 const client = new Client({
 	intents: [
-                GatewayIntentBits.Guilds,
-                GatewayIntentBits.GuildMessages,
-                GatewayIntentBits.MessageContent,
-                GatewayIntentBits.GuildMessageReactions,
-            ]
+        GatewayIntentBits.Guilds,
+        GatewayIntentBits.GuildMessages,
+        GatewayIntentBits.MessageContent,
+        GatewayIntentBits.GuildMessageReactions,
+    ]
 });
 
 client.on(Events.MessageCreate, msg => {
@@ -45,6 +45,12 @@ client.on(Events.MessageCreate, msg => {
         if (reply.length != 0) {
             msg.reply(reply);
         }
+    }
+});
+
+client.on(Events.MessageCreate, msg => {
+    if (msg.content.toLowerCase().includes('fractal duck')) {
+        msg.reply('quack!');
     }
 });
 
